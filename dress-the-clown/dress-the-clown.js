@@ -18,6 +18,8 @@ let clothingIndex = 0
 //1 = body
 //2 = feet
 
+function changeClothes(clothingIndex) {}
+
 function changeClownHead() {
   if (clothingIndex == 0) {
     if (headIndex < 6 && headIndex >= 0) {
@@ -33,7 +35,6 @@ function changeClownBody() {
   if (clothingIndex == 1) {
     if (bodyIndex < 6 && bodyIndex >= 0) {
       body.src = './images/body' + bodyIndex + '.png'
-      console.log(body)
     } else if (bodyIndex > 4 || bodyIndex < 0) {
       bodyIndex = 0
       changeClownBody()
@@ -58,40 +59,33 @@ document.addEventListener('keydown', function (e) {
       if (clothingIndex == 0) {
         headIndex++
         changeClownHead()
-        break
       } else if (clothingIndex == 1) {
         bodyIndex++
         changeClownBody()
-        break
       } else if (clothingIndex == 2) {
         shoesIndex++
         changeClownShoes()
-        break
       }
+      break
     }
-
     case 'ArrowLeft': {
       if (clothingIndex == 0) {
         headIndex--
         changeClownHead()
-        break
       } else if (clothingIndex == 1) {
         bodyIndex--
         changeClownBody()
-        break
       } else if (clothingIndex == 2) {
         shoesIndex--
         changeClownShoes()
-        break
       }
+      break
     }
-
     case 'ArrowDown':
       if (clothingIndex < 3) {
         clothingIndex++
       }
       break
-
     case 'ArrowUp':
       if (clothingIndex > 0) {
         clothingIndex--
